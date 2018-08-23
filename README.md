@@ -65,6 +65,9 @@ dokku redis:link sentry-redis sentry
 
 dokku memcached:create sentry-memcached
 dokku memcached:link sentry-memcached sentry
+
+dokku rabbitmq:create sentry-rabbitmq
+dokku rabbitmq:link sentry-rabbitmq sentry
 ```
 
 ## Configuration
@@ -87,6 +90,12 @@ dokku config:set --no-restart sentry SENTRY_EMAIL_PASSWORD=<yourmailpassword>
 dokku config:set --no-restart sentry SENTRY_EMAIL_PORT=25
 dokku config:set --no-restart sentry SENTRY_SERVER_EMAIL=sentry@example.com
 dokku config:set --no-restart sentry SENTRY_EMAIL_USE_TLS=True
+```
+
+### SENTRY_SINGLE_ORGANIZATION
+
+```
+dokku config:set --no-restart sentry SENTRY_SINGLE_ORGANIZATION=False
 ```
 
 ## Persistent storage
